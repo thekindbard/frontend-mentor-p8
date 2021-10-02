@@ -227,7 +227,7 @@ section:nth-child(2) button:active {
         padding: 0px;
     }
     section:first-child input[type="text"] {
-        width: 97%;
+        width: 95%;
     }
     section:first-child label.label-button {
         width: 100%;
