@@ -226,6 +226,9 @@ section:nth-child(2) button:active {
     section {
         padding: 0px;
     }
+    section:first-child input[type="text"] {
+        width: 97%;
+    }
     section:first-child label.label-button {
         width: 100%;
     }

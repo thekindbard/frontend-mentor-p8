@@ -101,7 +101,7 @@
           button.classList.remove('active');
         }
       })
-      document.querySelector('[name=custom]').value =  "";
+      document.querySelector('[name=custom]').value = "";
     }
 
     function calc(e) {
@@ -134,11 +134,13 @@
       //calculo
       if (values["bill"] && values["people"] && values["tip"]) {
 
+        
         const tipAmount = (values["bill"] * values["tip"] / 100 / values["people"]).toFixed(2);
         const total = (values["bill"] * (Number(values["tip"]) + 100) / 100 / values["people"]).toFixed(2);
-
+        
         document.querySelector('#tipAmount').value =  `$${tipAmount}`;
         document.querySelector('#total').value =  `$${total}`;
+
       }
     }
 
