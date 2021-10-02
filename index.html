@@ -12,6 +12,7 @@
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 </head>
 <body>
+  <div class="jump">See result</div>
 
   <header>
     <h1>SPLI<br>TTER</h1>
@@ -93,6 +94,11 @@
       people: "",
     }
 
+    function hideAlert() {
+      this.style.display = "none";
+      scroll(0,window.innerHeight);
+    }
+
     function handleClickButton(e) {
       document.querySelectorAll('input[type=radio] + .radio-button').forEach( button => {
         if (button == this) {
@@ -120,14 +126,15 @@
 
       values[name] = value;
 
-      // value.slice(0,-2) + "." + value.slice(-2)
 
       if (name=="bill" || name=="people") {
         if (value == 0) {
           document.querySelector(`[for=${e.target.name}] ~ span.error`).classList.add("active");
+          document.querySelector(`[name=${e.target.name}]`).classList.add("error");
           return;
         } else {
           document.querySelector(`[for=${e.target.name}] ~ span.error`).classList.remove("active");
+          document.querySelector(`[name=${e.target.name}]`).classList.remove("error");
         }
       }
       
@@ -141,11 +148,13 @@
         document.querySelector('#tipAmount').value =  `$${tipAmount}`;
         document.querySelector('#total').value =  `$${total}`;
 
+        if (window.innerWidth<1000) document.querySelector('.jump').style.display = "block";
+
+
       }
     }
 
     function validity({name, value}) {
-      // if (name == "bill" && value==0) return true;
       if (name=="tip" && value<0 || name=="tip" && value>100) return true;
       else if (name=="people" && value<0 || name=="people" && value>100) return true;
     }
@@ -172,6 +181,7 @@
     document.querySelectorAll('section:first-child input[type=radio]').forEach( item => item.addEventListener('change', calc));
     document.querySelectorAll('section:first-child input[type="text"]').forEach( item => item.addEventListener('input', calc));
     document.querySelector('#reset').addEventListener('click', reset)
+    document.querySelector('.jump').addEventListener('click', hideAlert)
     
   </script>
 </body>

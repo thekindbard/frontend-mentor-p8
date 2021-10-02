@@ -43,6 +43,17 @@ main {
     max-width: 1000px;
 }
 
+.jump {
+    background-color: var(--very-dark-cyan);
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+    padding: 20px;
+    text-align: center;
+    display: none;
+    color: white;
+}
+
 section {
     display: inline-block;
     width: 100%;
@@ -100,6 +111,10 @@ section:first-child input[type="text"]:not(.custom)::placeholder {
 section:first-child input[type="text"]:focus {
     border: 2px solid var(--strong-cyan);
     outline: 0px;
+}
+
+section:first-child input[type="text"].error:focus {
+    border: 2px solid red;
 }
 
 section:first-child input[type="radio"] {
